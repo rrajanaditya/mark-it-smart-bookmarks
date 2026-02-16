@@ -47,6 +47,7 @@ const BookmarkItem = memo(({ bookmark, onDelete, supabase }: ItemProps) => {
             />
             <input
               className="bg-white/60 border text-black border-blue-200 rounded-lg p-2 text-xs outline-none focus:ring-2 focus:ring-blue-400/50"
+              type="url"
               value={editValues.url}
               onChange={(e) => setEditValues(prev => ({ ...prev, url: e.target.value }))}
             />
