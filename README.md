@@ -45,7 +45,7 @@ As a Cybersecurity student, I prioritize understanding the underlying mechanics 
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/rrajanaditya/mark-it-smart-bookmarks
-    cd markit
+    cd mark-it-smart-bookmarks
     ```
 
 2.  **Install Dependencies:**
@@ -57,7 +57,7 @@ As a Cybersecurity student, I prioritize understanding the underlying mechanics 
     Create a `.env.local` file with your Supabase credentials:
     ```env
     NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
     ```
 
 4.  **Database Migration:**
