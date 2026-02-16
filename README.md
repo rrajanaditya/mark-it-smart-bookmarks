@@ -20,6 +20,7 @@ As a Cybersecurity student, I prioritize understanding the underlying mechanics 
 **The Problem:** Realtime `INSERT` events were broadcasting perfectly on Safari but were failing on Chrome. `DELETE` events worked on both, but new bookmarks would only appear in Chrome after a manual refresh.
 
 **The Solution:** Using Chrome's Network inspector, I discovered that Chrome was establishing the WebSocket connection *before* the Supabase session had fully hydrated from LocalStorage. Because the Realtime filter was checking for `user_id = eq.${userId}`, and `userId` was null for a split second during connection, the server ignored the client's request.
+
 **Fix:** I implemented a session guard that prevents the Realtime subscription from initiating until the `userId` is confirmed and valid.
 
 ### 2. The "Payload Null" Delete Bug
@@ -27,6 +28,7 @@ As a Cybersecurity student, I prioritize understanding the underlying mechanics 
 
 
 **The Solution:** By default, PostgreSQL only logs the Primary Key for deletions to save space in the Write-Ahead Log (WAL). To get the full context of a deleted row in Realtime, I had to manually adjust the table's replication identity.
+
 **Fix:** Executed `ALTER TABLE bookmarks REPLICA IDENTITY FULL;` in the SQL editor.
 
 
@@ -42,7 +44,7 @@ As a Cybersecurity student, I prioritize understanding the underlying mechanics 
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/rrajanaditya/markit.git](https://github.com/rrajanaditya/markit.git)
+    git clone https://github.com/rrajanaditya/mark-it-smart-bookmarks
     cd markit
     ```
 
